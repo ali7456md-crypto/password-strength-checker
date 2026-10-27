@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Password Strength Checker</title>
+  <meta name="description" content="Check how strong your password is. Runs entirely in your browser; nothing is sent anywhere.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <h1>How strong is your password?</h1>
+    <p class="intro">Everything runs in your browser. Your password is never sent or stored.</p>
+
+    <label for="pw">Password</label>
+    <div class="field">
+      <input id="pw" type="password" autocomplete="off" spellcheck="false" placeholder="Type a password to test">
+      <button id="toggle" type="button" aria-pressed="false">Show</button>
+    </div>
+
+    <div class="meter" role="img" aria-label="Strength meter" id="meter">
+      <span></span><span></span><span></span><span></span><span></span>
+    </div>
+    <p id="verdict" class="verdict" aria-live="polite">Start typing to see the result.</p>
+
+    <dl class="stats">
+      <div><dt>Length</dt><dd id="s-length">0</dd></div>
+      <div><dt>Entropy</dt><dd id="s-entropy">0 bits</dd></div>
+      <div><dt>Time to crack*</dt><dd id="s-time">instantly</dd></div>
+    </dl>
+
+    <ul id="checks" class="checks">
+      <li data-check="length">At least 12 characters</li>
+      <li data-check="lower">Lowercase letter</li>
+      <li data-check="upper">Uppercase letter</li>
+      <li data-check="number">Number</li>
+      <li data-check="symbol">Symbol (!, @, #, ...)</li>
+      <li data-check="common">Not a commonly used password</li>
+      <li data-check="pattern">No repeats or sequences (aaa, 1234, abc)</li>
+    </ul>
+
+    <p id="tips" class="tips"></p>
+
+    <p class="foot">*Assumes an offline attacker making 10 billion guesses per second.
+      <a href="https://github.com/ali7456md-crypto/password-strength-checker">View source</a></p>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
